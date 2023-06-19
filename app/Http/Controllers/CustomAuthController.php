@@ -26,9 +26,6 @@ class CustomAuthController extends Controller
             return redirect()->intended('/shop')
                         ->withSuccess('Sesión iniciada');
         }
-        else {
-            dd("Hola");
-        }
         
         return redirect("login")->withSuccess('Te faltó: 123');
     }
@@ -41,7 +38,7 @@ class CustomAuthController extends Controller
     public function customRegistration(Request $request)
     {  
         $request->validate([
-            'username' => 'required|unique:usuarios',
+            'username' => 'required|unique:users',
             'password' => 'required|min:4',
         ]);
         

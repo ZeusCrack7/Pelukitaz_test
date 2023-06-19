@@ -21,9 +21,9 @@
                         <div class="col-lg-3">
                             <div class="card" style="margin-bottom: 20px; height: auto;">
                                 <img src="/images/{{ $pro->image_path }}"
-                                     class="card-img-top mx-auto"
-                                     style="height: 150px; width: 150px;display: block;"
-                                     alt="{{ $pro->image_path }}"
+                                    class="card-img-top mx-auto"
+                                    style="height: 150px; width: 150px;display: block;"
+                                    alt="{{ $pro->image_path }}"
                                 >
                                 <div class="card-body">
                                     <a href=""><h6 class="card-title">{{ $pro->name }}</h6></a>
@@ -37,7 +37,7 @@
                                         <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
                                         <input type="hidden" value="1" id="quantity" name="quantity">
                                         <div class="card-footer" style="background-color: white;">
-                                              <div class="row">
+                                            <div class="row">
                                                 <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
                                                     <i class="fa fa-shopping-cart"></i> agregar al carrito
                                                 </button>

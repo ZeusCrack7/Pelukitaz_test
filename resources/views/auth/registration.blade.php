@@ -10,15 +10,19 @@
                         <form action="{{ route('register.custom') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Email" id="email_address" class="form-control"
-                                    name="email" required autofocus>
-                                @if ($errors->has('usuario'))
-                                <span class="text-danger">{{ $errors->first('usuario') }}</span>
+                                <input type="text" placeholder="Email" id="email_address" class="form-control" name="email" required autofocus>
+                                @if ($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
                             <div class="form-group mb-3">
-                                <input type="password" placeholder="Password" id="password" class="form-control"
-                                    name="password" required>
+                                <input type="text" placeholder="Usuario" id="username" class="form-control" name="username" required autofocus>
+                                @if ($errors->has('username'))
+                                <span class="text-danger">{{ $errors->first('username') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="password" placeholder="Password" id="password" class="form-control" name="password" required>
                                 @if ($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
