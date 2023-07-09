@@ -8,10 +8,13 @@
                     <div class="col-lg-7">
                         <h4>Inventario de productos</h4>
                     </div>
+                    <h4>Agregar nuevo(s) producto(s)</h4>
+                    <button class="btn btn-dark btn-sm mx-2"><i class="fa fa-trash"></i></button>
                 </div>
                 <hr>
                 <ul class="list-group">
                     @foreach($products as $pro)
+                    @if($pro->category_id !== 1)
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-lg-3">
@@ -54,6 +57,7 @@
                                 </div>
                             </div>
                         </li>
+                        @endif
                     @endforeach
                 </ul>
             </div>
