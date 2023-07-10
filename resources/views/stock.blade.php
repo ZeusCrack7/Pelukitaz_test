@@ -4,12 +4,13 @@
     <div class="container" style="margin-top: 80px">
         <div class="row justify-content-center">
             <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-lg-7">
+                <div class="col-lg-12">
+                    <div class="d-flex justify-content-between">
                         <h4>Inventario de productos</h4>
+                        <h4>Agregar nuevo(s) producto(s)<button class="ml-2 btn btn-success btn-sm"><i class="bi bi-plus-circle fs-6" ></i></button></h4>
+                        
+                        <h4>Inserte filtro aquí</h4>
                     </div>
-                    <h4>Agregar nuevo(s) producto(s)</h4>
-                    <button class="btn btn-dark btn-sm mx-2"><i class="fa fa-trash"></i></button>
                 </div>
                 <hr>
                 <ul class="list-group">
@@ -44,19 +45,20 @@
                                 </div>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-lg-12">
+                                <div class="col-lg-2">
                                     <form action="{{ route('products.update', $pro->id) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
-                                        <div class="form-group">
-                                            <label for="existencia">Existencia:</label>
-                                            <input type="number" class="form-control form-control-sm" id="existencia" name="existencia" value="{{ $pro->existencia }}">
+                                        <div class="d-flex justify-content-start">
+                                            <label for="existencia">Existencias:</label>
+                                            <input type="number" class="form-control form-control-s" id="existencia" name="existencia" value="{{ $pro->existencia }}">
+                                            <button type="submit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-sm">Actualizar Existencia</button>
                                     </form>
                                 </div>
                             </div>
                         </li>
+                        <hr>
                         @endif
                     @endforeach
                 </ul>

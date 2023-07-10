@@ -61,16 +61,20 @@
                             <div class="row">
                                 <form action="{{ route('cart.update') }}" method="POST">
                                     {{ csrf_field() }}
-                                    <div class="form-group row">
+                                    <div class="form-group row align-items-center">
                                         <input type="hidden" value="{{ $item->id}}" id="id" name="id">
-                                        <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}" id="quantity" name="quantity" style="width: 70px; margin-right: 10px;">
-                                        <button class="btn btn-secondary btn-sm" style="margin-right: 25px;"><i class="fa fa-edit"></i></button>
+                                        <div class="col-lg-4">
+                                            <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}" id="quantity" name="quantity" style="width: 70px;">
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <button class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
+                                        </div>
                                     </div>
                                 </form>
                                 <form action="{{ route('cart.clear_one') }}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" value="{{ $item->id }}" id="id" name="id">
-                                    <button class="btn btn-dark btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
+                                    <button class="btn btn-danger btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
                                 </form>
                             </div>
                         </div>
@@ -94,7 +98,7 @@
                     <br><a href="/shop" class="btn btn-dark">Regresar a la tienda</a>
                     <form action="{{ route('sales.store') }}" method="POST">
                         {{ csrf_field() }}
-                        <br><button type="submit" class="btn btn-success">Proceder con la compra</button>
+                        <br><button type="submit" class="btn btn-success">Proceder con la venta</button>
                     </form>
                 </div>
             @endif
