@@ -12,7 +12,7 @@
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session()->get('success_msg') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         @endif
@@ -20,7 +20,7 @@
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 {{ session()->get('alert_msg') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         @endif
@@ -29,7 +29,7 @@
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ $error }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true"></span>
                     </button>
                 </div>
             @endforeach
@@ -85,7 +85,6 @@
                 @endif
             </div>
             @if(count($cartCollection)>0)
-            
                 <div class="col-lg-5">
                     <div class="card">
                         <ul class="list-group list-group-flush">

@@ -37,9 +37,6 @@
         <a class="btn btn-dark btn-sm btn-block" href="{{ route('cart.index') }}">
             CARRITO <i class="fa fa-arrow-right"></i>
         </a>
-        <a class="btn btn-dark btn-sm btn-block" href="">
-            PROCEDER AL PAGO <i class="fa fa-arrow-right"></i>
-        </a>
     </div>
 @else
     <li class="list-group-item">Carrito vacío</li>
