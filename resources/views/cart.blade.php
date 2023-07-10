@@ -85,6 +85,7 @@
                 @endif
             </div>
             @if(count($cartCollection)>0)
+            
                 <div class="col-lg-5">
                     <div class="card">
                         <ul class="list-group list-group-flush">
@@ -92,7 +93,10 @@
                         </ul>
                     </div>
                     <br><a href="/shop" class="btn btn-dark">Regresar a la tienda</a>
-                    <a href="/shop" class="btn btn-success">Proceder con la compra</a>
+                    <form action="{{ route('sales.store') }}" method="POST">
+                        {{ csrf_field() }}
+                        <br><button type="submit" class="btn btn-success">Proceder con la compra</button>
+                    </form>
                 </div>
             @endif
         </div>

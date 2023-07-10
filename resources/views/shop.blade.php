@@ -8,6 +8,14 @@
                 <li class="breadcrumb-item active" aria-current="page"> Tienda</li>
             </ol>
         </nav>
+        @if(session()->has('success_msg'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session()->get('success_msg') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="row">

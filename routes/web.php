@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\carritos;
-use App\Http\Controllers\usuarios;
-use App\Http\Controllers\productos;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SalesController;
+use App\Http\Controllers\CheckoutController;
 
 
 // Carrito y Home
@@ -34,5 +33,13 @@ Route::get('/signout', [CustomAuthController::class, 'signOut'])->name('signout'
 Route::get('/stock', [ProductController::class, 'stock'])->name('stock');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::get('/store', [ProductController::class, 'store'])->name('products.store');
+
+//Ventas
+// Route::post('/checkout/proceed', [CartController::class, 'proceedToCheckout'])->name('checkout.proceed');
+// Route::get('/checkout/confirmation', [CheckoutController::class, 'confirmation'])->name('checkout.confirmation');
+Route::post('/checkout', [SalesController::class, 'store'])->name('sales.store');
+Route::get('/checkout/confirmation', [CheckoutController::class, 'confirmation'])->name('checkout.confirmation');
+
+
 
 

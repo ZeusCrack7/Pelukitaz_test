@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\SalesInventory;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -67,8 +68,18 @@ class CartController extends Controller
         \Cart::remove($request -> id);
         return redirect()->route('cart.index')->with('success_msg', 'Producto eliminado!');
     }
-    
 
+    //ventas
+    public function proceedToCheckout(Request $request)
+{
+    $quantitySold = \Cart::getTotalQuantity();
+
+    SalesInventory::create([
+        'quantity' => $quantitySold,
+        'time' => now()
+    ]);
+    return redirect()->route('checkout.confirmation');
+}
 
 }
 
