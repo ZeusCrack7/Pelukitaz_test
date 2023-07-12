@@ -16,10 +16,20 @@ class SalesInventory extends Model
         'time',
     ];
     public function products()
+    {
+        return $this->belongsToMany(Product::class, 'sales_inventory_products')
+            ->withPivot('quantity')
+            ->withTimestamps();
+    }
+
+    public function index()
 {
-    return $this->belongsToMany(Product::class, 'sales_inventory_products', 'sales_inventory_id', 'product_id')
-        ->withPivot('quantity')
-        ->withTimestamps();
+    $soldProducts = SalesInventory::all();
+
+    return view('sales.index', ['soldProducts' => $soldProducts]);
 }
+
+
+
 
 }

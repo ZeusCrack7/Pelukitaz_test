@@ -33,6 +33,9 @@ Route::get('/signout', [CustomAuthController::class, 'signOut'])->name('signout'
 Route::get('/stock', [ProductController::class, 'stock'])->name('stock');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::get('/store', [ProductController::class, 'store'])->name('products.store');
+Route::get('/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+
 
 //Ventas
 // Route::post('/checkout/proceed', [CartController::class, 'proceedToCheckout'])->name('checkout.proceed');

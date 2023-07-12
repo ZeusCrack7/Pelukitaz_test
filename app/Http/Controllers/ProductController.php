@@ -21,19 +21,26 @@ class ProductController extends Controller
     
         return redirect()->back()->with('success', 'Existencia actualizada.');
     }
+    public function create()
+    {
+        return view('create');
+    }
     public function store(Request $request)
     {
-    $validatedData = $request->validate([
-        'name' => 'required',
-        'price' => 'required|numeric',
-        'sell_price' => 'required|numeric',
-        'existencia' => 'required|numeric',
-    ]);
+        $product = new Product();
+        $product->name = $request->name;
+        $product->sell_price = $request->sell_price;
+        $product->price = $request->price;
+        $product->existencia = $request->existencia;
+        $product->category_id = $request->category_id;
+        if ($request->hasFile('image_path')) {
+            $imagePath = $request->file('image_path')->store('images');
+            $product->image_path = $imagePath;
+        }
+        $product->save();
 
-    $product = Product::create($validatedData);
-    return redirect()->route('products.index')->with('success', 'El producto ha sido agregado correctamente.');
+        // Redireccionar a la página deseada después de guardar
+        return redirect('/stock')->with('success_msg', 'Producto creado exitosamente');
     }
-
-        
+    
 }
-

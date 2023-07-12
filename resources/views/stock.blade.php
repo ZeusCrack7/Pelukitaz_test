@@ -7,8 +7,7 @@
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-between">
                         <h4>Inventario de productos</h4>
-                        <h4>Agregar nuevo(s) producto(s)<button class="ml-2 btn btn-success btn-sm"><i class="bi bi-plus-circle fs-6" ></i></button></h4>
-                        
+                        <h4>Agregar nuevo(s) producto(s)<a href="{{ route('create') }}" class="ml-2 btn btn-success btn-sm"><i class="bi bi-plus-circle fs-6" ></i></a></h4>                        
                         <h4>Inserte filtro aquí</h4>
                     </div>
                 </div>

@@ -18,6 +18,9 @@ class SalesController extends Controller
         $sale->save();
 
         session()->flash('success_msg', '¡Cóbrale al cliente... Ya!');
+        \Cart::clear();
 
-        return redirect('/shop');    }
+        return redirect('/shop');    
+    }
+    
 }

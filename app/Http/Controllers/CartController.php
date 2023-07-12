@@ -71,15 +71,17 @@ class CartController extends Controller
 
     //ventas
     public function proceedToCheckout(Request $request)
-{
-    $quantitySold = \Cart::getTotalQuantity();
-
-    SalesInventory::create([
-        'quantity' => $quantitySold,
-        'time' => now()
-    ]);
-    return redirect()->route('checkout.confirmation');
-}
-
+    {
+        $quantitySold = \Cart::getTotalQuantity();
+    
+        SalesInventory::create([
+            'quantity' => $quantitySold,
+            'time' => now()
+        ]);
+    
+        \Cart::clear();
+    
+        return redirect()->route('checkout.confirmation');
+    }    
 }
 
