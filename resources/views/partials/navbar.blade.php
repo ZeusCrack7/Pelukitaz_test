@@ -4,6 +4,23 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorías
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/spicy">Picosos</a></li>
+                        <li><a class="dropdown-item" href="/choco">Chocolates</a></li>
+                        <li><a class="dropdown-item" href="/drinks">Bebidas</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/shop">Tienda completa</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -23,7 +40,6 @@
                         <ul class="list-group" style="margin: 20px;">
                             @include('partials.cart-drop')
                         </ul>
-
                     </div>
                 </li>
             </ul>

@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" style="margin-top: 80px">
+<style>
+        .hide-navbar {
+            display: none;
+        }
+    </style>
+
+    <div class="container" style="margin-top: 5px">
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="col-lg-12">

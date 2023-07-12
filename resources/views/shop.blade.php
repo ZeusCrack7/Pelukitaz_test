@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" style="margin-top: 80px">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><b><a href="/shop">Inicio</a>/<a href="/spicy"> Dulces picosos</a>/<a href="/choco"> Chocolates</a>/<a href="/drinks"> Bebidas </a></b></li>
-                <li class="breadcrumb-item active" aria-current="page"> Tienda</li>
-            </ol>
-        </nav>
+    <div class="container" style="margin-top: 5px">
         @if(session()->has('success_msg'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session()->get('success_msg') }}
