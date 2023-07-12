@@ -36,10 +36,13 @@ class ProductController extends Controller
         if ($request->hasFile('image_path')) {
             $imagePath = $request->file('image_path')->store('images');
             $product->image_path = $imagePath;
+        }else {
+            $product->image_path = '1.jpg'; // depormientras 
+            $product->category_id = '3';
+
         }
         $product->save();
 
-        // Redireccionar a la página deseada después de guardar
         return redirect('/stock')->with('success_msg', 'Producto creado exitosamente');
     }
     

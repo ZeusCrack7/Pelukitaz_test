@@ -30,7 +30,7 @@ Route::post('/custom-registration', [CustomAuthController::class, 'customRegistr
 Route::get('/signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 // Inventario
-Route::get('/stock', [ProductController::class, 'stock'])->name('stock');
+Route::get('/stock', [ProductController::class, 'stock'])->name('products.stock');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::get('/store', [ProductController::class, 'store'])->name('products.store');
 Route::get('/create', [ProductController::class, 'create'])->name('products.create');

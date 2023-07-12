@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class SalesInventory extends Model
 {
@@ -22,12 +23,19 @@ class SalesInventory extends Model
             ->withTimestamps();
     }
 
-    public function index()
-{
-    $soldProducts = SalesInventory::all();
+    public function sales_inventory_products()
+    {
+    return $this->belongsToMany(Product::class, 'sales_inventory_products', 'sales_inventory_id', 'product_id')
+        ->withPivot('quantity')
+        ->withTimestamps();
+    }
 
-    return view('sales.index', ['soldProducts' => $soldProducts]);
-}
+    // public function index()
+    // {
+    // $soldProducts = SalesInventory::all();
+
+    // return view('sales.index', ['soldProducts' => $soldProducts]);
+    // }
 
 
 

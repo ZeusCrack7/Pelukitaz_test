@@ -89,19 +89,19 @@
                 @endif
             </div>
             @if(count($cartCollection)>0)
-                <div class="col-lg-5">
-                    <div class="card">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><b>Total: </b>${{ \Cart::getTotal() }}</li>
-                        </ul>
-                    </div>
-                    <br><a href="/shop" class="btn btn-dark">Regresar a la tienda</a>
-                    <form action="{{ route('sales.store') }}" method="POST">
-                        {{ csrf_field() }}
-                        <br><button type="submit" class="btn btn-success">Proceder con la venta</button>
-                    </form>
-                </div>
-            @endif
+        <div class="col-lg-5">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Total: </b>${{ \Cart::getTotal() }}</li>
+                </ul>
+            </div>
+            <br><a href="/shop" class="btn btn-dark">Regresar a la tienda</a>
+            <form action="{{ route('sales.store') }}" method="POST">
+                {{ csrf_field() }}
+                <br><button type="submit" class="btn btn-success">Proceder con la venta</button>
+            </form>
+        </div>
+    @endif
         </div>
         <br><br>
     </div>
