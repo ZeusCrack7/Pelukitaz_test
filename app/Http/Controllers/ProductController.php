@@ -38,7 +38,7 @@ class ProductController extends Controller
             $product->image_path = $imagePath;
         }else {
             $product->image_path = '1.jpg'; // depormientras 
-            $product->category_id = '3';
+            $product->category_id = '7';
 
         }
         $product->save();

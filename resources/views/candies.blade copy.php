@@ -2,6 +2,12 @@
 
 @section('content')
     <div class="container" style="margin-top: 80px">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Inicio</a>/<a href="/spicy">Dulces picosos</a><a href="/choco">Chocolates</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dulces</li>
+            </ol>
+        </nav>
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="row">
@@ -32,7 +38,7 @@
                                         <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
                                         <input type="hidden" value="1" id="quantity" name="quantity">
                                         <div class="card-footer" style="background-color: white;">
-                                              <div class="row">
+                                            <div class="row">
                                                 <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
                                                     <i class="fa fa-shopping-cart"></i> agregar al carrito
                                                 </button>

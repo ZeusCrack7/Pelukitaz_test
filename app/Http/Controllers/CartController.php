@@ -12,21 +12,38 @@ class CartController extends Controller
         $products = Product::all();
         return view('shop')->withTitle('PELUKITAZ | TIENDA')->with(['products' => $products]);
     }
+    public function accesories()
+    {
+        $products = Product::where('category_id', 3)->get();
+        return view('shop')->withTitle('PELUKITAZ | ACCESORIOS')->with(['products' => $products]);
+        
+    }
+    public function candies()
+    {
+        $products = Product::where('category_id', 7)->get();
+        return view('shop')->withTitle('PELUKITAZ | DULCES')->with(['products' => $products]);
+    }
+    public function hair()
+    {
+        $products = Product::where('category_id', 2)->get();
+        return view('shop')->withTitle('PELUKITAZ | PRODUCTOS')->with(['products' => $products]);
+    }
+
     public function spicy()
     {
         $products = Product::where('category_id', 4)->get();
-        return view('shop')->withTitle('PELUKITAZ | TIENDA')->with(['products' => $products]);
+        return view('shop')->withTitle('PELUKITAZ | PICOSOS')->with(['products' => $products]);
     }    
 
     public function choco()
     {
         $products = Product::where('category_id', 5)->get();
-        return view('shop')->withTitle('PELUKITAZ | TIENDA')->with(['products' => $products]);
+        return view('shop')->withTitle('PELUKITAZ | CHOCOLATES')->with(['products' => $products]);
     }    
     public function drinks()
     {
         $products = Product::where('category_id', 6)->get();
-        return view('shop')->withTitle('PELUKITAZ | TIENDA')->with(['products' => $products]);
+        return view('shop')->withTitle('PELUKITAZ | BEBIDAS')->with(['products' => $products]);
     }    
 
     public function cart()  {

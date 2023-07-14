@@ -17,9 +17,12 @@ Route::post('/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::post('/clear_one', [CartController::class, 'clear_one'])->name('cart.clear_one');
+Route::get('/candies', [CartController::class, 'candies'])->name('candies');
 Route::get('/spicy', [CartController::class, 'spicy'])->name('spicy');
 Route::get('/drinks', [CartController::class, 'drinks'])->name('drinks');
 Route::get('/choco', [CartController::class, 'choco'])->name('choco');
+Route::get('/accesories', [CartController::class, 'accesories'])->name('accesories');
+Route::get('/hair', [CartController::class, 'hair'])->name('hair');
 
 // Usuarios
 Route::get('/dashboard', [CustomAuthController::class, 'dashboard']); 

@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-        .hide-navbar {
-            display: none;
-        }
-    </style>
-
     <div class="container" style="margin-top: 5px">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -31,8 +25,9 @@
                                     >
                                 </div>
                                 <div class="col-lg-6">
-                                    <a href=""><h6 class="card-title">{{ $pro->name }}</h6></a>
+                                    <h6 class="card-title mb-2">{{ $pro->name }}</h6>
                                     <p>Precio de venta: ${{ $pro->price }}</p>
+                                    <p>Precio de compra: ${{ $pro->sell_price }}</p>
                                     <p>Existencia: {{ $pro->existencia }}</p>
                                 </div>
                                 <div class="col-lg-3">
@@ -44,7 +39,7 @@
                                         <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
                                         <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
                                         <input type="hidden" value="1" id="quantity" name="quantity">
-                                        <button class="btn btn-secondary btn-sm mr-2">Botón 1</button>
+                                        <button class="btn btn-success btn-sm mr-2">Agregar inventario</button>
                                         <button class="btn btn-dark btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </div>
@@ -58,6 +53,10 @@
                                             <label for="existencia">Existencias:</label>
                                             <input type="number" class="form-control form-control-s" id="existencia" name="existencia" value="{{ $pro->existencia }}">
                                             <button type="submit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
+                                            <label for="existencia">Precio:</label>
+                                            <input type="number" class="form-control form-control-s" id="existencia" name="existencia" value="{{ $pro->existencia }}">
+                                            <button type="submit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
+
                                         </div>
                                     </form>
                                 </div>

@@ -12,9 +12,12 @@
                         CATEGORÍAS
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/candies">Dulces</a></li>
                         <li><a class="dropdown-item" href="/spicy">Picosos</a></li>
                         <li><a class="dropdown-item" href="/choco">Chocolates</a></li>
                         <li><a class="dropdown-item" href="/drinks">Bebidas</a></li>
+                        <li><a class="dropdown-item" href="/accesories">Accesorios</a></li>
+                        <li><a class="dropdown-item" href="/hair">Productos para el cabello</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/shop">Tienda completa</a></li>
                     </ul>
