@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-sm ">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/shop') }}">Pelukitaz</a>
+    <img src="/images/peluk.png" class="rounded float-start" href="{{ url('/shop') }}" style="width: 35px">
+    <a class="navbar-brand ml-2" href="{{ url('/shop') }}">PELUKITAZ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,7 +9,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
+                        CATEGORÍAS
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/spicy">Picosos</a></li>
