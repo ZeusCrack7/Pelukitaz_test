@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\InventoryController;
 
 
 // Carrito y Home
@@ -38,6 +39,9 @@ Route::put('/products/{product}', [ProductController::class, 'update'])->name('p
 Route::get('/store', [ProductController::class, 'store'])->name('products.store');
 Route::get('/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
+
 
 
 //Ventas

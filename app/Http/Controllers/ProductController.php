@@ -45,5 +45,18 @@ class ProductController extends Controller
 
         return redirect('/stock')->with('success_msg', 'Producto creado exitosamente');
     }
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+    
+        if (!$product) {
+            return redirect()->back()->with('error', 'Producto no encontrado');
+        }
+    
+        $product->delete();
+    
+        return redirect()->route('products.stock')->with('success', 'Producto eliminado');
+    }
+    
     
 }

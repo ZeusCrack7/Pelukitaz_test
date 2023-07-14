@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-between">
                         <h4>Inventario de productos</h4>
-                        <h4>Agregar nuevo(s) producto(s)<a href="{{ route('products.create') }}" class="ml-2 btn btn-success btn-sm"><i class="bi bi-plus-circle fs-6" ></i></a></h4>                        
+                        <h4>Agregar nuevo(s) producto(s)<a href="{{ route('products.create') }}" class="ml-2 btn btn-success btn-sm"><i class="bi bi-plus-circle fs-6"></i></a></h4>                        
                         <h4>Inserte filtro aquí</h4>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                                     <h6 class="card-title mb-2">{{ $pro->name }}</h6>
                                     <p>Precio de venta: ${{ $pro->price }}</p>
                                     <p>Precio de compra: ${{ $pro->sell_price }}</p>
-                                    <p>Existencia: {{ $pro->existencia }}</p>
+                                    <p>Existencia:</p>
                                 </div>
                                 <div class="col-lg-3">
                                     <form action="{{ route('cart.store') }}" method="POST">
@@ -39,31 +39,28 @@
                                         <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
                                         <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
                                         <input type="hidden" value="1" id="quantity" name="quantity">
-                                        <button class="btn btn-success btn-sm mr-2">Agregar inventario</button>
-                                        <button class="btn btn-dark btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-success btn-sm mr-2"><i class="bi bi-plus-circle fs-6"></i></button>
+                                    </form>
+                                    <form action="{{ route('products.destroy', $pro->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button type="submit" class="btn btn-danger btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-lg-2">
-                                    <form action="{{ route('products.update', $pro->id) }}" method="POST">
+                                    <form action="{{ route('inventory.store') }}" method="POST">
                                         {{ csrf_field() }}
-                                        {{ method_field('PUT') }}
-                                        <div class="d-flex justify-content-start">
-                                            <label for="existencia">Existencias:</label>
-                                            <input type="number" class="form-control form-control-s" id="existencia" name="existencia" value="{{ $pro->existencia }}">
-                                            <button type="submit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
-                                            <label for="existencia">Precio:</label>
-                                            <input type="number" class="form-control form-control-s" id="existencia" name="existencia" value="{{ $pro->existencia }}">
-                                            <button type="submit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
-
-                                        </div>
+                                        <input type="hidden" value="{{ $pro->id }}" name="product_id">
+                                        <input type="number" class="form-control form-control-s" name="quantity" placeholder="Agregar inventario">
+                                        <button type="submit" class="btn btn-success btn-sm">Agregar inventario</button>
                                     </form>
                                 </div>
                             </div>
                         </li>
                         <hr>
-                        @endif
+                    @endif
                     @endforeach
                 </ul>
             </div>
