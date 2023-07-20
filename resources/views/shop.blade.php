@@ -6,7 +6,7 @@
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session()->get('success_msg') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         @endif
@@ -28,24 +28,30 @@
                                     alt="{{ $pro->image_path }}"
                                 >
                                 <div class="card-body">
-                                    <a href=""><h6 class="card-title">{{ $pro->name }}</h6></a>
+                                    <h6 class=" text-xl-start"><strong>{{ $pro->name }}</strong></h6>
                                     <p>${{ $pro->price }}</p>
-                                    <form action="{{ route('cart.store') }}" method="POST">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
-                                        <input type="hidden" value="{{ $pro->name }}" id="name" name="name">
-                                        <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
-                                        <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
-                                        <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
-                                        <input type="hidden" value="1" id="quantity" name="quantity">
-                                        <div class="card-footer" style="background-color: white;">
-                                            <div class="row">
-                                                <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
-                                                    <i class="fa fa-shopping-cart"></i> agregar al carrito
-                                                </button>
+                                    @if($pro->stock < 1)
+                                    <div class="p-3 text-primary-emphasis bg-danger-subtle border border-danger-border-subtle rounded-3">
+  Producto agotado!!!!
+</div>
+                                    @else
+                                        <form action="{{ route('cart.store') }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
+                                            <input type="hidden" value="{{ $pro->name }}" id="name" name="name">
+                                            <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
+                                            <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
+                                            <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
+                                            <input type="hidden" value="1" id="quantity" name="quantity">
+                                            <div class="card-footer" style="background-color: white;">
+                                                <div class="row">
+                                                    <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
+                                                        <i class="fa fa-shopping-cart"></i> agregar al carrito
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -6,6 +6,7 @@
         <div class="col-lg-12">
             <div class="col-lg-12">
                 <div class="d-flex justify-content-between">
+                    <hr>
                     <h4>Inventario de productos</h4>
                     <h4>Agregar nuevo(s) producto(s)<a href="{{ route('products.create') }}" class="ml-2 btn btn-success btn-sm"><i class="bi bi-plus-circle fs-6"></i></a></h4>
                     <h4>Inserte filtro aquí</h4>
@@ -26,32 +27,20 @@
                         </div>
                         <div class="col-lg-6">
                             <h6 class="card-title mb-2">{{ $pro->name }}</h6>
-                            <p>Precio de venta: ${{ $pro->price }}</p>
-                            <p>Precio de compra: ${{ $pro->sell_price }}</p>
-                            <p>
-                                Existencia: 
-                                @if ($pro->salesInventoryProducts->count() > 0)
-                                    <?php
-                                        $totalInventory = $pro->inventory ? $pro->inventory->quantity : 0;
-                                        $totalSales = $pro->salesInventoryProducts->sum('quantity');
-                                        $existence = $totalInventory - $totalSales;
-                                        echo $existence;
-                                    ?>
-                                @else
-                                    {{ $pro->inventory ? $pro->inventory->quantity : 0 }}
-                                @endif
-                            </p>
+                            <p>Precio de venta: ${{ $pro->sell_price }}</p>
+                            <p>Precio de compra: ${{ $pro->price }}</p>
+                            <p>Stock: {{ $pro->stock }}</p>
+                            <p>Utilidad: {{ $pro->utilidades }}</p>
                         </div>
                         <div class="col-lg-3">
                             <form action="{{ route('cart.store') }}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" value="{{ $pro->id }}" id="id" name="id" >
                                 <input type="hidden" value="{{ $pro->name }}" id="name" name="name">
-                                <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
+                                <input type="hidden" value="{{ $pro->sell_price }}" id="price" name="price">
                                 <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
                                 <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
                                 <input type="hidden" value="1" id="quantity" name="quantity">
-                                <button class="btn btn-success btn-sm mr-2"><i class="bi bi-plus-circle fs-6"></i></button>
                             </form>
                             <form action="{{ route('products.destroy', $pro->id) }}" method="POST">
                                 {{ csrf_field() }}

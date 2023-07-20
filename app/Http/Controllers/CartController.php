@@ -2,47 +2,48 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\SalesInventory;
+use App\Models\Special;
 use Illuminate\Http\Request;
+use App\Models\SalesInventory;
 
 class CartController extends Controller
 {
     public function shop()
     {
-        $products = Product::all();
+        $products = Special::all();
         return view('shop')->withTitle('PELUKITAZ | TIENDA')->with(['products' => $products]);
     }
     public function accesories()
     {
-        $products = Product::where('category_id', 3)->get();
+        $products = Special::where('category_id', 3)->get();
         return view('shop')->withTitle('PELUKITAZ | ACCESORIOS')->with(['products' => $products]);
         
     }
     public function candies()
     {
-        $products = Product::where('category_id', 7)->get();
+        $products = Special::where('category_id', 7)->get();
         return view('shop')->withTitle('PELUKITAZ | DULCES')->with(['products' => $products]);
     }
     public function hair()
     {
-        $products = Product::where('category_id', 2)->get();
+        $products = Special::where('category_id', 2)->get();
         return view('shop')->withTitle('PELUKITAZ | PRODUCTOS')->with(['products' => $products]);
     }
 
     public function spicy()
     {
-        $products = Product::where('category_id', 4)->get();
+        $products = Special::where('category_id', 4)->get();
         return view('shop')->withTitle('PELUKITAZ | PICOSOS')->with(['products' => $products]);
     }    
 
     public function choco()
     {
-        $products = Product::where('category_id', 5)->get();
+        $products = Special::where('category_id', 5)->get();
         return view('shop')->withTitle('PELUKITAZ | CHOCOLATES')->with(['products' => $products]);
     }    
     public function drinks()
     {
-        $products = Product::where('category_id', 6)->get();
+        $products = Special::where('category_id', 6)->get();
         return view('shop')->withTitle('PELUKITAZ | BEBIDAS')->with(['products' => $products]);
     }    
 
