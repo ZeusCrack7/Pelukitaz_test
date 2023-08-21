@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5px">
+    <div class="text">-</div>
         @if(session()->has('success_msg'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session()->get('success_msg') }}
@@ -10,7 +11,8 @@
                 </button>
             </div>
         @endif
-        <div class="row justify-content-center">
+
+        <div class="row justify-content-center mt-4">
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-7">
@@ -22,18 +24,14 @@
                     @foreach($products as $pro)
                         <div class="col-lg-3">
                             <div class="card" style="margin-bottom: 20px; height: auto;">
-                                <img src="/images/{{ $pro->image_path }}"
-                                    class="card-img-top mx-auto"
-                                    style="height: 150px; width: 150px;display: block;"
-                                    alt="{{ $pro->image_path }}"
-                                >
+                                <img src="/images/{{ $pro->image_path }}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display: block;" alt="{{ $pro->image_path }}">
                                 <div class="card-body">
                                     <h6 class=" text-xl-start"><strong>{{ $pro->name }}</strong></h6>
                                     <p>${{ $pro->price }}</p>
                                     @if($pro->stock < 1)
-                                    <div class="p-3 text-primary-emphasis bg-danger-subtle border border-danger-border-subtle rounded-3">
-  Producto agotado!!!!
-</div>
+                                    <div class="p-3 text-center bg-danger-subtle border border-danger-border-subtle rounded-3">
+                                        Producto agotado!!!!
+                                    </div>
                                     @else
                                         <form action="{{ route('cart.store') }}" method="POST">
                                             {{ csrf_field() }}

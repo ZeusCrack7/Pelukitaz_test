@@ -9,6 +9,7 @@
             </ol>
         </nav>
     <div class="row justify-content-center">
+    <img src="/images/peluk.png" class="rounded float-start" href="{{ url('/shop') }}" style="width: 400px">
             <div class="col-md-4">
                 <div class="card">
                     <h3 class="card-header text-center">Iniciar sesión</h3>

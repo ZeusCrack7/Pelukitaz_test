@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container" style="margin-top: 5px">
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="col-lg-12">
-                <div class="d-flex justify-content-between">
+                <div class="text">-</div>
+                <div class="d-flex justify-content-between mt-3">
                     <hr>
                     <h4>Inventario de productos</h4>
                     <h4>Agregar nuevo(s) producto(s)<a href="{{ route('products.create') }}" class="ml-2 btn btn-success btn-sm"><i class="bi bi-plus-circle fs-6"></i></a></h4>
@@ -21,16 +23,17 @@
                         <div class="col-lg-3">
                             <img src="/images/{{ $pro->image_path }}"
                                 class="card-img-top mx-auto"
-                                style="height: 80px; width: 80px;display: block;"
+                                style="height: 80%; width: 60% ;display: block;"
                                 alt="{{ $pro->image_path }}"
                             >
                         </div>
                         <div class="col-lg-6">
                             <h6 class="card-title mb-2">{{ $pro->name }}</h6>
-                            <p>Precio de venta: ${{ $pro->sell_price }}</p>
-                            <p>Precio de compra: ${{ $pro->price }}</p>
+                            <p>Precio de compra: ${{ $pro->sell_price }}</p>
+                            <p>Precio de venta: ${{ $pro->price }}</p>
                             <p>Stock: {{ $pro->stock }}</p>
                             <p>Utilidad: {{ $pro->utilidades }}</p>
+                            <p>Sucursal: {{ $pro->id_sucursal == 1 ? 'Guadalupe ' : 'Zacatecas' }}</p>
                         </div>
                         <div class="col-lg-3">
                             <form action="{{ route('cart.store') }}" method="POST">
@@ -47,6 +50,7 @@
                                 {{ method_field('DELETE') }}
                                 <button type="submit" class="btn btn-danger btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
                             </form>
+                            <a href="{{ route('products.edit', $pro->id) }}" class="btn btn-warning btn-sm mt-2"><i class="fa fa-edit"></i></a>
                         </div>
                     </div>
                     <div class="row mt-2">

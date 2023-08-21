@@ -29,18 +29,22 @@ Route::get('/hair', [CartController::class, 'hair'])->name('hair');
 Route::get('/dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('/signout', [CustomAuthController::class, 'signOut'])->name('signout');
+//Permisos admin
 Route::get('/registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('/custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
-Route::get('/signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
-// Inventario
+// Inventario admin
 Route::get('/stock', [ProductController::class, 'stock'])->name('products.stock');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::get('/store', [ProductController::class, 'store'])->name('products.store');
 Route::get('/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'editForm'])->name('products.editForm');
 Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
+Route::resource('products', ProductController::class);
 
 
 

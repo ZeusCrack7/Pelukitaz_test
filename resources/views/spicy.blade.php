@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h4>Productos</h4>
+                        <h4>Picosos</h4>
                     </div>
                 </div>
                 <hr>
