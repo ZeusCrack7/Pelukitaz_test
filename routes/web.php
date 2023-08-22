@@ -2,15 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\InventoryController;
+use Laravel\Ui\AuthCommand;
+
+// Usuarios
+Route::redirect('/', '/login');
+
+Auth::routes();
 
 
 // Carrito y Home
-Route::get('/', [CustomAuthController::class, 'index'])->name('login');
 Route::get('/shop', [CartController::class, 'shop'])->name('shop');
 Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
 Route::post('/add', [CartController::class, 'add'])->name('cart.store');
@@ -25,14 +29,8 @@ Route::get('/choco', [CartController::class, 'choco'])->name('choco');
 Route::get('/accesories', [CartController::class, 'accesories'])->name('accesories');
 Route::get('/hair', [CartController::class, 'hair'])->name('hair');
 
-// Usuarios
-Route::get('/dashboard', [CustomAuthController::class, 'dashboard']); 
-Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
-Route::post('/custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
-Route::get('/signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
 //Permisos admin
-Route::get('/registration', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('/custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 
 // Inventario admin
 Route::get('/stock', [ProductController::class, 'stock'])->name('products.stock');

@@ -8,16 +8,6 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
     use AuthenticatesUsers;
 
@@ -26,7 +16,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/shop';
 
     /**
      * Create a new controller instance.
@@ -37,13 +27,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function username()
-    {
-        // $loginValue= request('username');
-        // $this -> username = filter_var($loginValue, FILTER_VALIDATE_EMAIL)? 'email' : 'username';
-        // request()->merge([$this-> username => $loginValue]);
-        // return property_exists($this, 'username')?$this->username : 'email';
-        return 'username';
-    }
-
 }
